@@ -1,0 +1,11 @@
+/wisata 
+# Get all list wisata
+
+/wisata/{id}
+# Get data wisata filtering by place_id
+
+/wisata/search/name?nama={nama}
+# Get data wisata search by name
+
+/wisata/search/city?kota={kota}
+# Get data wisata search by city

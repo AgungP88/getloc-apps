@@ -1,0 +1,11 @@
+virtualenv env
+source env/scripts/activate
+pip3 install flask
+pip3 install python-dotenv
+pip3 install flask-sqlalchemy
+pip3 install flask-migrate
+pip3 install pymysql
+
+flask db init
+flask db migration -m "commit message"
+flask db upgrade
