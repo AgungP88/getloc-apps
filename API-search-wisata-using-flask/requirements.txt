@@ -1,4 +1,5 @@
-flask
+Flask==1.1.1
+gunicorn==20.0.4
 python-dotenv
 flask-sqlalchemy
 flask-migrate
