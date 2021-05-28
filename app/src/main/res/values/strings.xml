@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GetLoc</string>
+    <string name="destinasi_wisata_disekitarmu">Destinasi Wisata Disekitarmu</string>
+    <string name="lewati">Lewati</string>
+    <string name="desc_one">Temukan Destinasi wisata terdekat yang ada disekitar mu. Kamu mungkin saja bisa menemukan tempat-tempat wisata yang belum terkenal namun ternyata sangat bagus.</string>
+    <string name="title_two">Sesuaikan Dengan Kantong</string>
+    <string name="desc_two">Kamu bisa memilih lokasi wisata yang sesuai dengan budget yang kamu miliki loh! kamu ga perlu khawatir lagi untuk bisa berlibur dan melepaskan semua penat mu.</string>
+    <string name="title_three">Pilih Wisata Sesukamu!</string>
+    <string name="desc_three">Tentu saja kamu bisa memilih tempat wisata yang kamu inginkan sendiri kok. Kemudian aplikasi kami akan memberikan rekomendasi rute terbaik dan paling efisien untuk sampai kesemua tempat</string>
+    <string name="mulai_sekarang">Mulai Sekarang!</string>
+    <string name="masukan_kota_anda">Masukan Kota Anda..</string>
+    <string name="pencarian_terakhir">Pencarian Terakhir</string>
+</resources>

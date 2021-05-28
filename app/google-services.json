@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "874487990209",
+    "project_id": "getloc-9cd2c",
+    "storage_bucket": "getloc-9cd2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874487990209:android:ffcf066e9bf01c988c5140",
+        "android_client_info": {
+          "package_name": "com.cals.getloc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874487990209-o8kf2p00t2t1m03j48ditp8bu0nldimg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdt9R3u4KBtXagJu3rLZV8OtT1Xwnlg74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874487990209-o8kf2p00t2t1m03j48ditp8bu0nldimg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
