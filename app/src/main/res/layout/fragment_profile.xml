@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -134,45 +134,19 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txt_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="phone"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
-
-                <EditText
-                    android:id="@+id/etPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="Telpon"
-                    android:focusableInTouchMode="false"
-                    android:inputType="phone"
-                    android:background="@drawable/bg_outline_primary_rounded"
-                    android:padding="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    />
-
-            </LinearLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnChangePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Ubah password"
+            app:layout_constraintTop_toBottomOf="@id/ll_one"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
 
@@ -190,7 +164,7 @@
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_one" />
+            app:layout_constraintTop_toBottomOf="@id/btnChangePassword" />
 
 
 

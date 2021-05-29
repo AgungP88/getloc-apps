@@ -7,6 +7,7 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.cals.getloc.R
 import com.google.firebase.auth.FirebaseAuth
@@ -23,9 +24,16 @@ class LoginActivity : AppCompatActivity() {
 
 
         val btnMasuk:Button = findViewById(R.id.btnLogin)
+        val btnForgotPassword:TextView = findViewById(R.id.btnForgotPassword)
         val etEmail: EditText = findViewById(R.id.etEmail)
         val etPassword: EditText = findViewById(R.id.etPassword)
 
+
+        btnForgotPassword.setOnClickListener {
+            Intent(this@LoginActivity, ResetPasswordActivity::class.java).also {
+                startActivity(it)
+            }
+        }
 
         btnMasuk.setOnClickListener {
             val email: String = etEmail.text.toString().trim()

@@ -12,10 +12,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.cals.getloc.R
 import com.cals.getloc.activity.LoginActivity
@@ -50,7 +47,7 @@ class ProfileFragment: Fragment() {
         val iv_Profile: ImageView = view.findViewById(R.id.ivProfile)
         val etName: EditText = view.findViewById(R.id.etUsername)
         val etEmail: EditText = view.findViewById(R.id.etEmail)
-        val etPhone: EditText = view.findViewById(R.id.etPhone)
+        val tvChangePassword: TextView = view.findViewById(R.id.btnChangePassword)
         val icVerified: ImageView = view.findViewById(R.id.ic_verified)
         val icUnverified: ImageView = view.findViewById(R.id.ic_unverified)
         auth = FirebaseAuth.getInstance()
@@ -71,12 +68,6 @@ class ProfileFragment: Fragment() {
                 } else{
                     icUnverified.visibility =View.VISIBLE
                 }
-
-            if (user.phoneNumber.isNullOrEmpty()){
-                etPhone.setText("Masukkan Nomor Telpon Anda")
-            } else{
-                etPhone.setText(user.phoneNumber)
-            }
 
 
         }
@@ -140,6 +131,18 @@ class ProfileFragment: Fragment() {
 
             }
         }
+
+        tvChangePassword.setOnClickListener {
+            val changePasswordFragment = ChangePasswordFragment()
+            fragmentManager?.beginTransaction()?.apply {
+                replace(R.id.frameLayout, changePasswordFragment, ChangePasswordFragment::class.java.simpleName)
+                    .addToBackStack(null)
+                    .commit()
+
+            }
+        }
+
+
 
     }
 
