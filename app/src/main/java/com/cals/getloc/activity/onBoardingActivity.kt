@@ -49,8 +49,6 @@ class onBoardingActivity : AppCompatActivity() {
             R.drawable.asset_three
         ))
 
-
-
         setOnBoardingViewPagerAdapter(onBoardingData)
 
         position = onBoardingViewPager!!.currentItem
