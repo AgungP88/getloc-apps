@@ -40,13 +40,13 @@ class onBoardingActivity : AppCompatActivity() {
         onBoardingData.add(onBoardingData(getString(R.string.destinasi_wisata_disekitarmu),  getString(
             R.string.desc_one
         ),
-            R.drawable.one
+            R.drawable.asset_one
         ))
         onBoardingData.add(onBoardingData(getString(R.string.title_two),  getString(R.string.desc_two),
-            R.drawable.two
+            R.drawable.asset_two
         ))
         onBoardingData.add(onBoardingData(getString(R.string.title_three), getString(R.string.desc_three),
-            R.drawable.three
+            R.drawable.asset_three
         ))
 
 

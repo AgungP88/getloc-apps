@@ -25,7 +25,6 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
 
-@RequiresApi(Build.VERSION_CODES.M)
 class HomeFragment: Fragment() {
 
 
