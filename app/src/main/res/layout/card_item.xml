@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:id="@+id/card_item"
     app:cardCornerRadius="10dp"
     android:layout_margin="12dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -53,6 +54,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tvCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jakarta"
@@ -83,6 +85,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rekomendasi 10 Tempat Wisata di Jakarta"
