@@ -13,12 +13,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.cals.getloc.R
 import com.cals.getloc.activity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import java.io.ByteArrayOutputStream
 
 class ProfileFragment: Fragment() {
@@ -41,12 +45,41 @@ class ProfileFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val btn_Logout:Button = view.findViewById(R.id.btnLogout)
+        val btn_Update:Button = view.findViewById(R.id.btnUpdate)
+        val iv_Profile: ImageView = view.findViewById(R.id.ivProfile)
+        val etName: EditText = view.findViewById(R.id.etUsername)
+        val etEmail: EditText = view.findViewById(R.id.etEmail)
+        val etPhone: EditText = view.findViewById(R.id.etPhone)
+        val icVerified: ImageView = view.findViewById(R.id.ic_verified)
+        val icUnverified: ImageView = view.findViewById(R.id.ic_unverified)
         auth = FirebaseAuth.getInstance()
 
-        val btn_Logout:Button = view.findViewById(R.id.btnLogout)
-        val iv_Profile: ImageView = view.findViewById(R.id.ivProfile)
+        val user = auth.currentUser
+        if ( user != null){
+            if (user.photoUrl != null){
+                Picasso.get().load(user.photoUrl).into(iv_Profile)
+            } else
+            {
+                Picasso.get().load("https://picsum.photos/316/200").into(iv_Profile)
+            }
+
+            etName.setText(user.displayName)
+            etEmail.setText(user.email)
+                if (user.isEmailVerified){
+                    icVerified.visibility = View.VISIBLE
+                } else{
+                    icUnverified.visibility =View.VISIBLE
+                }
+
+            if (user.phoneNumber.isNullOrEmpty()){
+                etPhone.setText("Masukkan Nomor Telpon Anda")
+            } else{
+                etPhone.setText(user.phoneNumber)
+            }
 
 
+        }
 
         btn_Logout.setOnClickListener {
             auth.signOut()
@@ -58,6 +91,54 @@ class ProfileFragment: Fragment() {
 
         iv_Profile.setOnClickListener {
             intentCamera()
+        }
+
+        btn_Update.setOnClickListener {
+            val image = when{
+                ::imgUri.isInitialized -> imgUri
+                user?.photoUrl == null -> Uri.parse("https://picsum.photos/316/200")
+                else -> user.photoUrl
+            }
+
+            val name = etName.text.toString().trim()
+            if (name.isEmpty()){
+                etName.error = "Nama Harus diisi"
+                etName.requestFocus()
+                return@setOnClickListener
+            }
+
+            UserProfileChangeRequest.Builder()
+                .setDisplayName(name)
+                .setPhotoUri(image)
+                .build().also {
+                    user?.updateProfile(it)?.addOnCompleteListener {
+                        if (it.isSuccessful){
+                            Toast.makeText(activity, "Profile Berhasil diUpdate", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(activity, "$(it.exception?.message)", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+        }
+
+        icUnverified.setOnClickListener {
+            user?.sendEmailVerification()?.addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(activity, "Email Verifikasi Telah dikirim", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(activity, "$(it.exception?.message)", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        etEmail.setOnClickListener {
+            val updateEmailFragment = UpdateEmailFragment()
+            fragmentManager?.beginTransaction()?.apply {
+                replace(R.id.frameLayout, updateEmailFragment, UpdateEmailFragment::class.java.simpleName)
+                    .addToBackStack(null)
+                    .commit()
+
+            }
         }
 
     }
