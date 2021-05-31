@@ -1,8 +1,12 @@
 package com.cals.getloc.activity
 
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.cals.getloc.R
 import com.cals.getloc.fragment.CartFragment
@@ -10,6 +14,7 @@ import com.cals.getloc.fragment.HomeFragment
 import com.cals.getloc.fragment.PlanFragment
 import com.cals.getloc.fragment.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
+
 
 
     private fun setCurrentFragment(fragment: Fragment) {
