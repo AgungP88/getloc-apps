@@ -30,7 +30,6 @@
                     android:layout_height="wrap_content"
                     android:text="Daftar Trip Plan Kamu"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/colorBlack"
                     android:textSize="14sp"/>
 
                 <TextView

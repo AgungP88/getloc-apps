@@ -38,7 +38,6 @@
                     android:layout_height="wrap_content"
                     android:text="Hello"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/colorBlack"
                     android:textSize="14sp"/>
 
                 <TextView
@@ -46,7 +45,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
-                    android:textColor="@color/colorBlack"
                     android:text="Your Location"/>
 
                 <TextView
@@ -54,7 +52,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
-                    android:textColor="@color/colorBlack"
                     android:text="Bandung"/>
 
 
@@ -113,7 +110,6 @@
                     android:layout_height="wrap_content"
                     android:text="Rekomendasi Trip Plan"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/colorBlack"
                     android:textSize="14sp"/>
 
                 <TextView
@@ -183,7 +179,6 @@
                     android:layout_height="wrap_content"
                     android:text="Pilihan Trip buat Kamu"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textColor="@color/colorBlack"
                     android:textSize="14sp"/>
 
                 <TextView
