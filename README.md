@@ -1,6 +1,8 @@
 # Machine Learning Path
 
 ## Description
+GetLoc : Get Location
+the idea of our application is to provide recommendations for the fastest and most efficient route to several tourist destinations and also provide recommendations for tourist attractions based on user. based on what the user likes and also provides packages for several tourist attractions according to several parameters such as city, price, category, and also time
 
 ### Optimation shortest Route
 The Traveling Salesman Problem (TSP) is a classic problem that tries to find the shortest route for salesmen who want to visit several cities without having to visit the same city more than once.
