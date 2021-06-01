@@ -23,11 +23,17 @@ class LoginActivity : AppCompatActivity() {
 
 
         val btnMasuk:Button = findViewById(R.id.btnLogin)
+        val btnRegister:TextView = findViewById(R.id.btnRegister)
         val btnForgotPassword:TextView = findViewById(R.id.btnForgotPassword)
         val etEmail: EditText = findViewById(R.id.etEmail)
         val etPassword: EditText = findViewById(R.id.etPassword)
 
 
+        btnRegister.setOnClickListener {
+            Intent(this, RegisterActivity::class.java).also {
+                startActivity(it)
+            }
+        }
         btnForgotPassword.setOnClickListener {
             Intent(this@LoginActivity, ResetPasswordActivity::class.java).also {
                 startActivity(it)
@@ -89,11 +95,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun btnRegister() {
-
-        Intent(this, RegisterActivity::class.java).also {
-            startActivity(it)
-        }
-
-    }
 }

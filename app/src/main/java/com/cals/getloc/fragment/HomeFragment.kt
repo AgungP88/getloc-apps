@@ -33,6 +33,7 @@ import com.cals.getloc.model.DataTravel
 import com.cals.getloc.model.HomeModel
 import com.google.android.gms.location.*
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

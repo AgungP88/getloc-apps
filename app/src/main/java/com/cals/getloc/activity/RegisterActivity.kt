@@ -8,6 +8,7 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.cals.getloc.R
@@ -39,6 +40,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val btnSignUp:Button = findViewById(R.id.btnSignUp)
+        val btnLogin:TextView = findViewById(R.id.btnToLogin)
         val etEmail:EditText = findViewById(R.id.etEmail)
         val etPassword:EditText = findViewById(R.id.etPassword)
 
@@ -51,6 +53,11 @@ class RegisterActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        btnLogin.setOnClickListener {
+            Intent(this, LoginActivity::class.java).also {
+                startActivity(it)
+            }
+        }
         binding.btnMasukGoogle.setOnClickListener {
             Log.d(TAG, "onCreate: begin Google SignIn")
             val intent = googleSignInClient.signInIntent
@@ -149,9 +156,4 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    fun btnMasuk() {
-        Intent(this, LoginActivity::class.java).also {
-            startActivity(it)
-        }
-    }
 }
