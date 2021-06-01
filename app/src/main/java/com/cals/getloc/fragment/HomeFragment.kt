@@ -1,4 +1,4 @@
-@file:Suppress("DEPRECATION")
+@file:Suppress("DEPRECATION", "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
 package com.cals.getloc.fragment
 
@@ -20,17 +20,29 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
+import com.cals.getloc.adapter.BundleAdapter
+import com.cals.getloc.adapter.HomeAdapter
+import com.cals.getloc.api.RetrofitClient
+import com.cals.getloc.model.DataTravel
+import com.cals.getloc.model.HomeModel
 import com.google.android.gms.location.*
 import com.google.firebase.auth.FirebaseAuth
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeFragment: Fragment() {
-
     lateinit var  fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var locationRequest: LocationRequest
     private var PERMISSION_ID = 100
     private lateinit var auth: FirebaseAuth
+
+    private var list =  ArrayList<DataTravel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +62,7 @@ class HomeFragment: Fragment() {
         val planFragment = PlanFragment()
         auth = FirebaseAuth.getInstance()
 
+
         val user = auth.currentUser
         nameUser.text = "Hello, "+ user?.displayName
 
@@ -62,14 +75,63 @@ class HomeFragment: Fragment() {
             }
         }
 
+        showData()
+
+
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity)
 
         btnPosition.setOnClickListener {
             getLastLocation()
         }
     }
+
+    private fun showData(){
+        val rv_Pilih: RecyclerView = requireView().findViewById(R.id.rv_pilih)
+
+        rv_Pilih.setHasFixedSize(true)
+        rv_Pilih.layoutManager = LinearLayoutManager(activity)
+        RetrofitClient.instance.getAllWisata().enqueue(object : Callback<HomeModel> {
+            override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
+                val listWisata = response.body()?.data
+                listWisata?.let { list.addAll(it) }
+                val adapter = HomeAdapter(list)
+                rv_Pilih.adapter = adapter
+            }
+
+            override fun onFailure(call: Call<HomeModel>, t: Throwable) {
+
+            }
+
+        })
+
+        val rv_rekomendasi: RecyclerView = requireView().findViewById(R.id.rv_rekomendasi)
+        rv_rekomendasi.setHasFixedSize(true)
+        rv_rekomendasi.layoutManager = LinearLayoutManager(activity)
+        RetrofitClient.instance.getAllWisata().enqueue(object : Callback<HomeModel> {
+            override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
+                val listWisata = response.body()?.data
+                listWisata?.let { list.addAll(it) }
+                val adapter = BundleAdapter(list)
+                rv_rekomendasi.adapter = adapter
+            }
+
+            override fun onFailure(call: Call<HomeModel>, t: Throwable) {
+
+            }
+
+        })
+
+    }
+
     private fun checkPermission():Boolean{
-        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED ){
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED ){
             return true
         }
 
@@ -78,14 +140,18 @@ class HomeFragment: Fragment() {
 
     private fun requestPermission(){
         ActivityCompat.requestPermissions(
-            requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),  PERMISSION_ID
+            requireActivity(), arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+            ), PERMISSION_ID
         )
     }
 
     private fun isLocationEnabled():Boolean{
-        var locationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val locationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
-            LocationManager.NETWORK_PROVIDER)
+            LocationManager.NETWORK_PROVIDER
+        )
     }
 
     override fun onRequestPermissionsResult(
@@ -107,7 +173,7 @@ class HomeFragment: Fragment() {
         if (checkPermission()){
             if (isLocationEnabled()){
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener { task->
-                    var location = task.result
+                    val location = task.result
                     if (location == null){
                         getNewLocation()
 
@@ -119,7 +185,11 @@ class HomeFragment: Fragment() {
                 }
 
             }else{
-                Toast.makeText(requireContext(),"Please Enable your Location Service", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Please Enable your Location Service",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         } else{
@@ -144,35 +214,35 @@ class HomeFragment: Fragment() {
             return
         }
         fusedLocationProviderClient.requestLocationUpdates(
-            locationRequest,locationCallback,Looper.myLooper()
+            locationRequest, locationCallback, Looper.myLooper()
         )
     }
 
     private val locationCallback = object : LocationCallback(){
         override fun onLocationResult(p0: LocationResult) {
             val locationtxt: TextView = requireView().findViewById(R.id.location)
-            var lastLocation = p0.lastLocation
+            val lastLocation = p0.lastLocation
             locationtxt.text = getCityName(lastLocation.latitude, lastLocation.longitude)
         }
     }
 
-    private fun getCityName(lat:Double, long:Double): String{
-        var CityName = ""
-        var geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        var address = geoCoder.getFromLocation(lat,long, 1)
+    private fun getCityName(lat: Double, long: Double): String{
+        val CityName: String
+        val geoCoder = Geocoder(requireContext(), Locale.getDefault())
+        val address = geoCoder.getFromLocation(lat, long, 1)
 
         CityName = address.get(0).locality
         return CityName
 
     }
 
-    private fun getCountryName(lat:Double, long:Double): String{
-        var CityName = ""
-        var geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        var address = geoCoder.getFromLocation(lat,long, 1)
+    private fun getCountryName(lat: Double, long: Double): String{
+        val CountryName: String
+        val geoCoder = Geocoder(requireContext(), Locale.getDefault())
+        val address = geoCoder.getFromLocation(lat, long, 1)
 
-        CityName = address.get(0).countryName
-        return CityName
+        CountryName = address.get(0).countryName
+        return CountryName
 
     }
 }

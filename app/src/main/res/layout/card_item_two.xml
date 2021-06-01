@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/card_item"
+    android:id="@+id/card_item_two"
     app:cardCornerRadius="10dp"
     android:layout_margin="12dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -56,31 +56,17 @@
                     <TextView
                         android:id="@+id/tvCity"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Jakarta"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_height="match_parent"
                         android:layout_marginEnd="8dp"
-                        android:textColor="@color/colorWhite"
                         android:background="@drawable/bg_label_primary"
-                        android:textSize="12sp"/>
-
-                    <TextView
-                        android:id="@+id/tvPlan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp"
-                        android:text="Plan A"
                         android:fontFamily="@font/poppins_semibold"
-                        android:background="@drawable/bg_label_primary"
+                        android:paddingStart="8dp"
+                        android:paddingTop="2dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="2dp"
+                        android:text="Jakarta"
                         android:textColor="@color/colorWhite"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
 
 
                 </LinearLayout>
