@@ -1,5 +1,6 @@
 package com.cals.getloc.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -23,15 +24,13 @@ class onBoardingViewPagerAdapter(private var context: Context, private var onBoa
         container.removeView(`object` as View)
     }
 
+    @SuppressLint("InflateParams")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(context).inflate( R.layout.activity_on_boarding_one, null)
-        val imageView: ImageView
-        val title: TextView
-        val desc: TextView
 
-        imageView = view.findViewById(R.id.img_one)
-        title = view.findViewById(R.id.tv_title_one)
-        desc = view.findViewById(R.id.tv_desc_one)
+        val imageView: ImageView = view.findViewById(R.id.img_one)
+        val title: TextView = view.findViewById(R.id.tv_title_one)
+        val desc: TextView = view.findViewById(R.id.tv_desc_one)
 
 
         imageView.setImageResource(onBoardingList[position].imageUrl)

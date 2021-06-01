@@ -14,12 +14,12 @@ import com.google.android.material.tabs.TabLayout
 
 class onBoardingActivity : AppCompatActivity() {
 
-    var onBoardingViewPagerAdapter: onBoardingViewPagerAdapter?= null
-    var tabLayout: TabLayout? = null
-    var onBoardingViewPager: ViewPager? = null
+    private var onBoardingViewPagerAdapter: onBoardingViewPagerAdapter?= null
+    private var tabLayout: TabLayout? = null
+    private var onBoardingViewPager: ViewPager? = null
     var lewati: TextView?= null
     var position = 0
-    var sharePreference: SharedPreferences?=null
+    private var sharePreference: SharedPreferences?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

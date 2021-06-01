@@ -1,12 +1,8 @@
 package com.cals.getloc.activity
 
-import android.content.Context
-import android.content.pm.PackageManager
-import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.cals.getloc.R
 import com.cals.getloc.fragment.CartFragment
@@ -14,7 +10,6 @@ import com.cals.getloc.fragment.HomeFragment
 import com.cals.getloc.fragment.PlanFragment
 import com.cals.getloc.fragment.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,12 +19,12 @@ class MainActivity : AppCompatActivity() {
     private val profileFragment = ProfileFragment()
 
 
-    val TAG = "MainActivity"
+    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val bottom_navigation = findViewById(R.id.bottom_navigation) as BottomNavigationView
+        val bottom_navigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         setCurrentFragment(homeFragment)
 

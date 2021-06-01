@@ -1,10 +1,8 @@
-@file:Suppress("DEPRECATION")
+@file:Suppress("DEPRECATION", "LABEL_NAME_CLASH")
 
 package com.cals.getloc.fragment
 
 import android.os.Bundle
-import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.cals.getloc.R
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -53,15 +52,19 @@ class ChangePasswordFragment : Fragment() {
 
             user?.let{
                 val userCredentials = EmailAuthProvider.getCredential(it.email!!, password)
-                it.reauthenticate(userCredentials).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        layoutPassword.visibility = View.GONE
-                        layoutNewPassword.visibility = View.VISIBLE
-                    } else if(it.exception is FirebaseAuthActionCodeException){
-                        etPassword.error = "Password Salah"
-                        etPassword.requestFocus()
-                    }else{
-                        Toast.makeText(activity, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                it.reauthenticate(userCredentials).addOnCompleteListener { task ->
+                    when {
+                        task.isSuccessful -> {
+                            layoutPassword.visibility = View.GONE
+                            layoutNewPassword.visibility = View.VISIBLE
+                        }
+                        task.exception is FirebaseAuthActionCodeException -> {
+                            etPassword.error = "Password Salah"
+                            etPassword.requestFocus()
+                        }
+                        else -> {
+                            Toast.makeText(activity, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }

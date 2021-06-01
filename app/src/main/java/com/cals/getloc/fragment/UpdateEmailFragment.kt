@@ -1,4 +1,4 @@
-@file:Suppress("DEPRECATION")
+@file:Suppress("DEPRECATION", "LABEL_NAME_CLASH")
 
 package com.cals.getloc.fragment
 
@@ -54,15 +54,19 @@ class UpdateEmailFragment : Fragment() {
 
             user?.let{
                 val userCredentials = EmailAuthProvider.getCredential(it.email!!, password)
-                it.reauthenticate(userCredentials).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        layoutPassword.visibility = View.GONE
-                        layoutEmail.visibility = View.VISIBLE
-                    } else if(it.exception is FirebaseAuthActionCodeException){
-                        etPassword.error = "Password Salah"
-                        etPassword.requestFocus()
-                    }else{
-                        Toast.makeText(activity, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                it.reauthenticate(userCredentials).addOnCompleteListener {task ->
+                    when {
+                        task.isSuccessful -> {
+                            layoutPassword.visibility = View.GONE
+                            layoutEmail.visibility = View.VISIBLE
+                        }
+                        task.exception is FirebaseAuthActionCodeException -> {
+                            etPassword.error = "Password Salah"
+                            etPassword.requestFocus()
+                        }
+                        else -> {
+                            Toast.makeText(activity, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }

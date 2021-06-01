@@ -102,8 +102,8 @@ class ProfileFragment: Fragment() {
                 .setDisplayName(name)
                 .setPhotoUri(image)
                 .build().also {
-                    user?.updateProfile(it)?.addOnCompleteListener {
-                        if (it.isSuccessful){
+                    user?.updateProfile(it)?.addOnCompleteListener { task ->
+                        if (task.isSuccessful){
                             Toast.makeText(activity, "Profile Berhasil diUpdate", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(activity, "$(it.exception?.message)", Toast.LENGTH_SHORT).show()

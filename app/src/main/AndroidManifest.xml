@@ -4,9 +4,9 @@
     package="com.cals.getloc">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GetLoc"
         tools:ignore="AllowBackup">
-        <activity android:name=".activity.ResetPasswordActivity"></activity>
+        <activity android:name=".activity.RekomendasiActivity"></activity>
+        <activity android:name=".activity.PilihanActivity" />
+        <activity android:name=".activity.ResetPasswordActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.onBoardingActivity" />

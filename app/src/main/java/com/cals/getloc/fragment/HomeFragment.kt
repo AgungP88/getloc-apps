@@ -5,6 +5,7 @@ package com.cals.getloc.fragment
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.LocationManager
@@ -23,6 +24,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
+import com.cals.getloc.activity.PilihanActivity
+import com.cals.getloc.activity.RekomendasiActivity
 import com.cals.getloc.adapter.BundleAdapter
 import com.cals.getloc.adapter.HomeAdapter
 import com.cals.getloc.api.RetrofitClient
@@ -37,8 +40,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class HomeFragment: Fragment() {
-    lateinit var  fusedLocationProviderClient: FusedLocationProviderClient
-    lateinit var locationRequest: LocationRequest
+    private lateinit var  fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var locationRequest: LocationRequest
     private var PERMISSION_ID = 100
     private lateinit var auth: FirebaseAuth
 
@@ -57,6 +60,8 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnSearch: ImageView = view.findViewById(R.id.btnsearch)
+        val btnRekomendasi : TextView = view.findViewById(R.id.btn_LihatSemuaRekomendasi)
+        val btnPilihan : TextView = view.findViewById(R.id.btn_LihatSemuaPilihan)
         val nameUser: TextView = view.findViewById(R.id.username)
         val btnPosition: LinearLayout = view.findViewById(R.id.btn_location)
         val planFragment = PlanFragment()
@@ -74,6 +79,19 @@ class HomeFragment: Fragment() {
 
             }
         }
+
+        btnRekomendasi.setOnClickListener {
+            Intent (activity, RekomendasiActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        btnPilihan.setOnClickListener {
+            Intent (activity, PilihanActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
 
         showData()
 
@@ -130,7 +148,7 @@ class HomeFragment: Fragment() {
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(
                 requireContext(),
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED ){
             return true
         }
@@ -142,7 +160,7 @@ class HomeFragment: Fragment() {
         ActivityCompat.requestPermissions(
             requireActivity(), arrayOf(
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION
             ), PERMISSION_ID
         )
     }
@@ -231,18 +249,8 @@ class HomeFragment: Fragment() {
         val geoCoder = Geocoder(requireContext(), Locale.getDefault())
         val address = geoCoder.getFromLocation(lat, long, 1)
 
-        CityName = address.get(0).locality
+        CityName = address[0].locality
         return CityName
-
-    }
-
-    private fun getCountryName(lat: Double, long: Double): String{
-        val CountryName: String
-        val geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        val address = geoCoder.getFromLocation(lat, long, 1)
-
-        CountryName = address.get(0).countryName
-        return CountryName
 
     }
 }

@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
 import com.cals.getloc.model.DataTravel
 
-class BundleAdapter (private val data: ArrayList<DataTravel>) : RecyclerView.Adapter<BundleAdapter.MyViewHolder>()  {
+class RekomendasiAdapter (private val data: ArrayList<DataTravel>) : RecyclerView.Adapter<RekomendasiAdapter.MyViewHolder>()  {
 
-    private val limit = 3
 
     inner class MyViewHolder(val view: View): RecyclerView.ViewHolder(view){
 
@@ -31,13 +30,8 @@ class BundleAdapter (private val data: ArrayList<DataTravel>) : RecyclerView.Ada
         return MyViewHolder(v)
     }
 
-    override fun getItemCount(): Int {
-        return if(data.size > limit){
-            limit
-        } else {
-            data.size
-        }
-    }
+    override fun getItemCount(): Int = data.size
+
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
