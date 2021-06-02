@@ -7,10 +7,12 @@ Before traveling, usually we will make a plan in advance about the location to b
 
 # Getting Started
 **- Prerequisites**
+	
 	1. Android 
 	2. Internet connection
 	3. GPS/Location
 
 **- installation**
+	
 	1. Download the APK 
 	2. Install the APK
