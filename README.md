@@ -4,3 +4,13 @@ GetLoc GitHub Repositories of Bangkit Academy 2021 Capstone Project from 3 learn
 # About the project
 
 Before traveling, usually we will make a plan in advance about the location to be visited and the time of departure. This is done to avoid problems, one of which is the distance to be traveled is farther until the time needed does not match expectations. To overcome this, our team uses the Traveling Salesman Problem method.  We present GetLoc as an application that is able to recommend several tourist attractions according to the location you want to go.
+
+# Getting Started
+**- Prerequisites**
+	1. Android 
+	2. Internet connection
+	3. GPS/Location
+
+**- installation**
+	1. Download the APK 
+	2. Install the APK
