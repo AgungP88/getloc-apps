@@ -18,7 +18,7 @@ Content-based recommenders treat recommendation as a user-specific classificatio
 
 For build TSP we inspire to use [this dataset](https://www.kaggle.com/c/traveling-santa-2018-prime-paths/data) to cek the our optimasiot route is works especially to test the Reinforcement Learning.
 and we inspire with [this dataset](https://www.kaggle.com/azharianisah/infotempatwisata) to build our recomendation system
-but we decide to build our dataset that you can see in folder dataset or you can see our process build dataset in [here](https://docs.google.com/spreadsheets/d/1lq6qeYAhBJBJbuyC9DpwKehQ6mWswMkd-NMfbDlkwnw/edit?usp=sharing)
+but we decide to build our dataset because we didn't find the right dataset for our project that you can see in folder dataset or you can see our process build dataset in [here](https://docs.google.com/spreadsheets/d/1lq6qeYAhBJBJbuyC9DpwKehQ6mWswMkd-NMfbDlkwnw/edit?usp=sharing)
 
 
 ### Reference
