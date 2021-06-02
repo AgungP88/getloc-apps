@@ -64,7 +64,7 @@
                         android:paddingTop="2dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="2dp"
-                        android:text="Jakarta"
+                        android:text="@string/jakarta"
                         android:textColor="@color/colorWhite"
                         android:textSize="12sp" />
 
@@ -75,7 +75,7 @@
                     android:id="@+id/tvNameWisata"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rekomendasi 10 Tempat Wisata di Jakarta"
+                    android:text="@string/rekomendasi_10_tempat_wisata_di_jakarta"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="12sp"
                     android:fontFamily="@font/poppins_semibold"

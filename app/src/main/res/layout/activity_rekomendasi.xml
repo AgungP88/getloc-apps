@@ -30,7 +30,8 @@
             android:id="@+id/backarrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_back"/>
+            android:src="@drawable/ic_arrow_back"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
         <LinearLayout
@@ -44,7 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rekomendasi Trip Plan"
+                android:text="@string/rekomendasi_trip_plan"
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="14sp"/>
 
@@ -54,7 +55,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:textSize="12sp"
                 android:textColor="@color/colorGreyMid"
-                android:text="Rekomendasi trip plan buat kamu!"/>
+                android:text="@string/rekomendasi_trip_plan_buat_kamu"/>
 
         </LinearLayout>
     </LinearLayout>

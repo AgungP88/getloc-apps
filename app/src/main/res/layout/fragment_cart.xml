@@ -23,12 +23,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:layout_gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="RtlHardcoded,UselessParent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daftar Trip Plan Kamu"
+                    android:text="@string/daftar_trip_plan_kamu"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="14sp"/>
 
@@ -38,7 +39,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
                     android:textColor="@color/colorGreyMid"
-                    android:text="Pastikan trip plan kamu sudah sesuai"/>
+                    android:text="@string/pastikan_trip_plan_kamu_sudah_sesuai"/>
 
             </LinearLayout>
 

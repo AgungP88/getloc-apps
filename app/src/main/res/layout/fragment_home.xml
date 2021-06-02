@@ -37,14 +37,15 @@
                     android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hello"
+                    android:text="@string/hello"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="14sp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -52,12 +53,13 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
-                    android:text="Your Location"/>
+                    android:text="@string/lokasi_kamu"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_down"/>
+                        android:src="@drawable/ic_down"
+                        tools:ignore="ContentDescription" />
 
                 </LinearLayout>
 
@@ -67,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
-                    android:text="None"/>
+                    android:text="@string/none"/>
 
 
             </LinearLayout>
@@ -123,7 +125,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rekomendasi Trip Plan"
+                    android:text="@string/rekomendasi_trip_plan"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="14sp"/>
 
@@ -133,7 +135,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
                     android:textColor="@color/colorGreyMid"
-                    android:text="Rekomendasi trip plan buat kamu!"/>
+                    android:text="@string/rekomendasi_trip_plan_buat_kamu"/>
 
             </LinearLayout>
 
@@ -150,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="11sp"
-                    android:text="Lihat Semua"
+                    android:text="@string/lihat_semua"
                     tools:ignore="SmallSp" />
 
             </LinearLayout>
@@ -191,7 +193,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pilihan Trip buat Kamu"
+                    android:text="@string/pilihan_trip_buat_kamu"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="14sp"/>
 
@@ -201,7 +203,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
                     android:textColor="@color/colorGreyMid"
-                    android:text="Cek trip seru buat kamu!"/>
+                    android:text="@string/cek_trip_seru_buat_kamu"/>
 
             </LinearLayout>
 
@@ -218,7 +220,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="11sp"
-                    android:text="Lihat Semua"
+                    android:text="@string/lihat_semua"
                     tools:ignore="SmallSp" />
 
             </LinearLayout>

@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
-        android:text="Daftar Akun"
+        android:text="@string/daftar_akun"
         android:fontFamily="@font/poppins_semibold"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Email"
+            android:text="@string/email"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
@@ -55,14 +55,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:background="@drawable/bg_outline_primary_rounded"
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            tools:ignore="Autofill" />
 
 
     </LinearLayout>
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Password"
+            android:text="@string/password"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
@@ -95,14 +95,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="*********"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:background="@drawable/bg_outline_primary_rounded"
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            tools:ignore="Autofill" />
 
 
     </LinearLayout>
@@ -113,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/bg_btn_primary_rounded"
-        android:text="Daftar"
+        android:text="@string/daftar"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:fontFamily="@font/poppins_semibold"
@@ -131,7 +131,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="atau"
+        android:text="@string/atau"
         app:layout_constraintTop_toBottomOf="@id/btnSignUp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -164,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_btn_primary_rounded_side"
-            android:text="Lanjutkan dengan Google"
+            android:text="@string/lanjutkan_dengan_google"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_semibold"/>
@@ -190,7 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
-            android:text="Sudah punya akun ? "
+            android:text="@string/sudah_punya_akun"
             app:layout_constraintTop_toBottomOf="@id/btnLogin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -200,7 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Masuk"
+            android:text="@string/masuk"
             app:layout_constraintTop_toBottomOf="@id/btnLogin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

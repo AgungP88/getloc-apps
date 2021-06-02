@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Password"
+            android:text="@string/password"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
@@ -50,14 +50,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:background="@drawable/bg_outline_primary_rounded"
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            tools:ignore="Autofill" />
 
         <Button
             android:id="@+id/btnAuth"
@@ -106,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Email"
+            android:text="@string/email"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
@@ -118,14 +118,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:background="@drawable/bg_outline_primary_rounded"
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            tools:ignore="Autofill" />
 
         <Button
             android:id="@+id/btnUpdate"
@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_btn_primary_rounded"
-            android:text="Update Email"
+            android:text="@string/update_email"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_semibold"
