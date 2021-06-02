@@ -16,3 +16,18 @@ Before traveling, usually we will make a plan in advance about the location to b
 	
 	1. Download the APK 
 	2. Install the APK
+	
+# Usage
+
+
+# Contributing
+
+
+# License
+
+
+# Contact
+
+
+# Acknowledgments
+
