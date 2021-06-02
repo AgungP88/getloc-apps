@@ -8,35 +8,35 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
 import com.cals.getloc.model.DataTravel
 
-class RekomendasiAdapter (private val data: ArrayList<DataTravel>) : RecyclerView.Adapter<RekomendasiAdapter.MyViewHolder>()  {
+class RekomendasiAdapter : RecyclerView.Adapter<RekomendasiAdapter.RekomendasiViewModel>() {
 
+    private val list = ArrayList<DataTravel>()
 
-    inner class MyViewHolder(val view: View): RecyclerView.ViewHolder(view){
+    fun setList(dataTravel: ArrayList<DataTravel>){
+        list.clear()
+        list.addAll(dataTravel)
+        notifyDataSetChanged()
+    }
 
-        fun bind(home: DataTravel){
+    inner class RekomendasiViewModel(val view: View): RecyclerView.ViewHolder(view){
+        fun bind(dataTravel: DataTravel){
             val name = view.findViewById<TextView>(R.id.tvNameWisata)
             val city = view.findViewById<TextView>(R.id.tvCity)
-            val plan = view.findViewById<TextView>(R.id.tvPlan)
 
-            name.text = home.name
-            city.text = home.city
-            plan.text = home.category
+            name.text = dataTravel.name
+            city.text = dataTravel.city
+
         }
-
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RekomendasiViewModel {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_item, parent, false)
-        return MyViewHolder(v)
+        return RekomendasiViewModel(v)
     }
 
-    override fun getItemCount(): Int = data.size
-
-
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(data[position])
+    override fun onBindViewHolder(holder: RekomendasiViewModel, position: Int) {
+        holder.bind(list[position])
     }
 
-
+    override fun getItemCount(): Int = list.size
 }

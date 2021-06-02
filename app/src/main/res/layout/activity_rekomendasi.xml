@@ -59,6 +59,7 @@
         </LinearLayout>
     </LinearLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_rekomendasiAct"
         android:layout_width="match_parent"

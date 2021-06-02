@@ -1,4 +1,4 @@
-package com.cals.getloc.adapter
+package com.cals.getloc.ui.plan
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
 import com.cals.getloc.model.DataTravel
 
-class PilihanAdapter: RecyclerView.Adapter<PilihanAdapter.PilihanViewModel>() {
+class PlanAdapter: RecyclerView.Adapter<PlanAdapter.PlanViewModel>() {
 
     private val list = ArrayList<DataTravel>()
 
@@ -18,7 +18,7 @@ class PilihanAdapter: RecyclerView.Adapter<PilihanAdapter.PilihanViewModel>() {
         notifyDataSetChanged()
     }
 
-    inner class PilihanViewModel(val view: View): RecyclerView.ViewHolder(view){
+    inner class PlanViewModel(val view: View): RecyclerView.ViewHolder(view){
         fun bind(dataTravel: DataTravel){
             val name = view.findViewById<TextView>(R.id.tvNameWisata)
             val city = view.findViewById<TextView>(R.id.tvCity)
@@ -29,12 +29,12 @@ class PilihanAdapter: RecyclerView.Adapter<PilihanAdapter.PilihanViewModel>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PilihanViewModel {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanViewModel {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_item_two, parent, false)
-        return PilihanViewModel(v)
+        return PlanViewModel(v)
     }
 
-    override fun onBindViewHolder(holder: PilihanViewModel, position: Int) {
+    override fun onBindViewHolder(holder: PlanViewModel, position: Int) {
         holder.bind(list[position])
     }
 

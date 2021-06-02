@@ -1,6 +1,6 @@
 @file:Suppress("UNREACHABLE_CODE", "DEPRECATION")
 
-package com.cals.getloc.fragment
+package com.cals.getloc.ui.profile
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.cals.getloc.R
 import com.cals.getloc.activity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -123,26 +124,12 @@ class ProfileFragment: Fragment() {
         }
 
         etEmail.setOnClickListener {
-            val updateEmailFragment = UpdateEmailFragment()
-            fragmentManager?.beginTransaction()?.apply {
-                replace(R.id.frameLayout, updateEmailFragment, UpdateEmailFragment::class.java.simpleName)
-                    .addToBackStack(null)
-                    .commit()
-
-            }
+            findNavController().navigate(R.id.action_profileFragment_to_updateEmailFragment)
         }
 
         tvChangePassword.setOnClickListener {
-            val changePasswordFragment = ChangePasswordFragment()
-            fragmentManager?.beginTransaction()?.apply {
-                replace(R.id.frameLayout, changePasswordFragment, ChangePasswordFragment::class.java.simpleName)
-                    .addToBackStack(null)
-                    .commit()
-
-            }
+            findNavController().navigate(R.id.action_profileFragment_to_changePasswordFragment)
         }
-
-
 
     }
 

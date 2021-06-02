@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.cals.getloc.MainActivity
 import com.cals.getloc.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
             Intent(this, RegisterActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)
             }
         }

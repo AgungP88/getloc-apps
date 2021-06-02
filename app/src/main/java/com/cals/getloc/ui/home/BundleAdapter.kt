@@ -1,4 +1,4 @@
-package com.cals.getloc.adapter
+package com.cals.getloc.ui.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
 import com.cals.getloc.model.DataTravel
 
-class BundleAdapter (private val data: ArrayList<DataTravel>) : RecyclerView.Adapter<BundleAdapter.MyViewHolder>()  {
+class BundleAdapter : RecyclerView.Adapter<BundleAdapter.MyViewHolder>()  {
 
     private val limit = 3
+    private val list = ArrayList<DataTravel>()
+
+    fun setLists(dataTravel: ArrayList<DataTravel>){
+        list.clear()
+        list.addAll(dataTravel)
+        notifyDataSetChanged()
+    }
 
     inner class MyViewHolder(val view: View): RecyclerView.ViewHolder(view){
 
@@ -32,16 +39,16 @@ class BundleAdapter (private val data: ArrayList<DataTravel>) : RecyclerView.Ada
     }
 
     override fun getItemCount(): Int {
-        return if(data.size > limit){
+        return if(list.size > limit){
             limit
         } else {
-            data.size
+            list.size
         }
     }
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(list[position])
     }
 
 

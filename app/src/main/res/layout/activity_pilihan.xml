@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rekomendasi Trip Plan"
+                android:text="Pilihan Trip buat Kamu"
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="14sp"/>
 
@@ -54,17 +54,18 @@
                 android:fontFamily="@font/poppins_regular"
                 android:textSize="12sp"
                 android:textColor="@color/colorGreyMid"
-                android:text="Rekomendasi trip plan buat kamu!"/>
+                android:text="Cek trip seru buat kamu!"/>
 
         </LinearLayout>
     </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_pilihanAct"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="80dp"
+        android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

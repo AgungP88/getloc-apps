@@ -16,7 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GetLoc"
         tools:ignore="AllowBackup">
-        <activity android:name=".activity.RekomendasiActivity"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main2" />
+        <activity android:name=".activity.RekomendasiActivity" />
         <activity android:name=".activity.PilihanActivity" />
         <activity android:name=".activity.ResetPasswordActivity" />
         <activity android:name=".activity.RegisterActivity" />
@@ -29,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

@@ -11,7 +11,7 @@ import com.cals.getloc.R
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var  handler: Handler
-    private val time = 5000L
+    private val time = 3000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

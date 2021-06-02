@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.cals.getloc.MainActivity
 import com.cals.getloc.R
 import com.cals.getloc.databinding.ActivityRegisterBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -55,6 +56,7 @@ class RegisterActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             Intent(this, LoginActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)
             }
         }

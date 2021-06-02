@@ -93,7 +93,7 @@ class onBoardingActivity : AppCompatActivity() {
 
         onBoardingViewPager = findViewById(R.id.viewpager)
         onBoardingViewPagerAdapter = onBoardingViewPagerAdapter(this, onBoardingData)
-        onBoardingViewPager!!.adapter = onBoardingViewPagerAdapter
+        onBoardingViewPager?.adapter = onBoardingViewPagerAdapter
         tabLayout?.setupWithViewPager(onBoardingViewPager)
 
 

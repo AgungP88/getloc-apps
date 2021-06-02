@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.cals.getloc.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_plan"
+            app:destination="@id/navigation_plan" />
+        <action
+            android:id="@+id/action_navigation_home_to_pilihanActivity"
+            app:destination="@id/pilihanActivity" />
+        <action
+            android:id="@+id/action_navigation_home_to_rekomendasiActivity"
+            app:destination="@id/rekomendasiActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_plan"
+        android:name="com.cals.getloc.ui.plan.PlanFragment"
+        android:label="@string/title_plan"
+        tools:layout="@layout/fragment_plan" />
+
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.cals.getloc.ui.cart.CartFragment"
+        android:label="@string/title_cart"
+        tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.cals.getloc.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_resetPasswordActivity"
+            app:destination="@id/resetPasswordActivity" />
+        <action
+            android:id="@+id/action_profileFragment_to_updateEmailFragment"
+            app:destination="@id/updateEmailFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/pilihanActivity"
+        android:name="com.cals.getloc.activity.PilihanActivity"
+        android:label="activity_pilihan"
+        tools:layout="@layout/activity_pilihan" />
+    <activity
+        android:id="@+id/rekomendasiActivity"
+        android:name="com.cals.getloc.activity.RekomendasiActivity"
+        android:label="activity_rekomendasi"
+        tools:layout="@layout/activity_rekomendasi" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.cals.getloc.fragment.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_changePasswordFragment_to_profileFragment"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateEmailFragment"
+        android:name="com.cals.getloc.fragment.UpdateEmailFragment"
+        android:label="fragment_update_email"
+        tools:layout="@layout/fragment_update_email" >
+        <action
+            android:id="@+id/action_updateEmailFragment_to_profileFragment"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+    <activity
+        android:id="@+id/resetPasswordActivity"
+        android:name="com.cals.getloc.activity.ResetPasswordActivity"
+        android:label="activity_reset_password"
+        tools:layout="@layout/activity_reset_password" />
+</navigation>

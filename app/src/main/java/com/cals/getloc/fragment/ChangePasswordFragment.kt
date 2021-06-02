@@ -11,7 +11,9 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.cals.getloc.R
+import com.cals.getloc.ui.profile.ProfileFragment
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthActionCodeException
@@ -86,14 +88,10 @@ class ChangePasswordFragment : Fragment() {
 
 
                 user.let {
+
                     user?.updatePassword(newPassword)?.addOnCompleteListener {
                         if (it.isSuccessful){
-                            val profileFragment = ProfileFragment()
-                            fragmentManager?.beginTransaction()?.apply {
-                                replace(R.id.frameLayout, profileFragment, ProfileFragment::class.java.simpleName)
-                                    .addToBackStack(null)
-                                    .commit()
-                            }
+                            findNavController().navigate(R.id.action_changePasswordFragment_to_profileFragment)
                             Toast.makeText(activity, "Password telah berhasil diubah", Toast.LENGTH_SHORT).show()
                         } else{
                             Toast.makeText(activity, "${it.exception?.message}", Toast.LENGTH_SHORT).show()

@@ -10,6 +10,16 @@
     <string name="mulai_sekarang">Mulai Sekarang!</string>
     <string name="masukan_kota_anda">Masukan Kota Anda..</string>
     <string name="pencarian_terakhir">Pencarian Terakhir</string>
+    <string name="place_api">AIzaSyDEoawtAM-ocTkX3aZxsrwtGnP3oOwQStY</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="masukkan_tempat_tujuan_anda">Masukkan Tempat Tujuan Anda</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_plan">Plan</string>
+    <string name="masukkan_password_anda">Masukkan Password Anda</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="masukkan_email_baru_anda">Masukkan Email Baru Anda</string>
+    <string name="masukkan_password_baru_anda">Masukkan Password Baru Anda</string>
 </resources>

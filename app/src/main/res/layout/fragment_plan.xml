@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:inputType="text"
                 android:maxLines="1"
-                android:hint="@string/masukan_kota_anda"
+                android:hint="@string/masukkan_tempat_tujuan_anda"
                 android:textColor="@color/colorGreyMid"
                 android:background="@drawable/bg_home_search"/>
 
@@ -53,16 +53,30 @@
         </ImageView>
     </FrameLayout>
 
-
-    <TextView
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pencarian_terakhir"
-        app:layout_constraintTop_toBottomOf="@id/fl_one"
+        app:layout_constraintTop_toBottomOf="@+id/fl_one"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_semibold"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pilihanPlan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_one"
+        tools:listitem="@layout/card_item_two" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

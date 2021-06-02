@@ -1,11 +1,10 @@
-@file:Suppress("DEPRECATION", "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+@file:Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "DEPRECATION")
 
-package com.cals.getloc.fragment
+package com.cals.getloc.ui.home
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.LocationManager
@@ -21,32 +20,23 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
-import com.cals.getloc.activity.PilihanActivity
-import com.cals.getloc.activity.RekomendasiActivity
-import com.cals.getloc.adapter.BundleAdapter
-import com.cals.getloc.adapter.HomeAdapter
-import com.cals.getloc.api.RetrofitClient
-import com.cals.getloc.model.DataTravel
-import com.cals.getloc.model.HomeModel
 import com.google.android.gms.location.*
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.util.*
-import kotlin.collections.ArrayList
 
 class HomeFragment: Fragment() {
+    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var adapter: HomeAdapter
+    private lateinit var adapters: BundleAdapter
     private lateinit var  fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
     private var PERMISSION_ID = 100
     private lateinit var auth: FirebaseAuth
-
-    private var list =  ArrayList<DataTravel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,82 +55,53 @@ class HomeFragment: Fragment() {
         val btnPilihan : TextView = view.findViewById(R.id.btn_LihatSemuaPilihan)
         val nameUser: TextView = view.findViewById(R.id.username)
         val btnPosition: LinearLayout = view.findViewById(R.id.btn_location)
-        val planFragment = PlanFragment()
         auth = FirebaseAuth.getInstance()
 
 
         val user = auth.currentUser
         nameUser.text = "Hello, "+ user?.displayName
 
-        btnSearch.setOnClickListener {
-            fragmentManager?.beginTransaction()?.apply {
-                replace(R.id.frameLayout, planFragment, PlanFragment::class.java.simpleName)
-                    .addToBackStack(null)
-                    .commit()
+        adapter = HomeAdapter()
+        adapters = BundleAdapter()
 
-            }
+        btnSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_plan)
         }
 
         btnRekomendasi.setOnClickListener {
-            Intent (activity, RekomendasiActivity::class.java).also {
-                startActivity(it)
-            }
+            findNavController().navigate(R.id.action_navigation_home_to_rekomendasiActivity)
         }
 
         btnPilihan.setOnClickListener {
-            Intent (activity, PilihanActivity::class.java).also {
-                startActivity(it)
-            }
+            findNavController().navigate(R.id.action_navigation_home_to_pilihanActivity)
         }
 
+        homeViewModel =
+            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val rv_Pilih = view.findViewById<RecyclerView>(R.id.rv_pilih)
+        rv_Pilih.setHasFixedSize(true)
+        rv_Pilih.layoutManager = LinearLayoutManager(activity)
+        rv_Pilih.adapter = adapter
 
-        showData()
+        val rv_Rekomendasi = view.findViewById<RecyclerView>(R.id.rv_rekomendasi)
+        rv_Rekomendasi.setHasFixedSize(true)
+        rv_Rekomendasi.layoutManager = LinearLayoutManager(activity)
+        rv_Rekomendasi.adapter = adapters
 
-
+        homeViewModel.setWisataRekomendasi()
+        homeViewModel.setWisataPilihan()
+        homeViewModel.getWisata().observe(viewLifecycleOwner, {
+            if (it!=null){
+                adapter.setList(it)
+                adapters.setLists(it)
+            }
+        })
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity)
 
         btnPosition.setOnClickListener {
             getLastLocation()
         }
-    }
-
-    private fun showData(){
-        val rv_Pilih: RecyclerView = requireView().findViewById(R.id.rv_pilih)
-
-        rv_Pilih.setHasFixedSize(true)
-        rv_Pilih.layoutManager = LinearLayoutManager(activity)
-        RetrofitClient.instance.getAllWisata().enqueue(object : Callback<HomeModel> {
-            override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
-                val listWisata = response.body()?.data
-                listWisata?.let { list.addAll(it) }
-                val adapter = HomeAdapter(list)
-                rv_Pilih.adapter = adapter
-            }
-
-            override fun onFailure(call: Call<HomeModel>, t: Throwable) {
-
-            }
-
-        })
-
-        val rv_rekomendasi: RecyclerView = requireView().findViewById(R.id.rv_rekomendasi)
-        rv_rekomendasi.setHasFixedSize(true)
-        rv_rekomendasi.layoutManager = LinearLayoutManager(activity)
-        RetrofitClient.instance.getAllWisata().enqueue(object : Callback<HomeModel> {
-            override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
-                val listWisata = response.body()?.data
-                listWisata?.let { list.addAll(it) }
-                val adapter = BundleAdapter(list)
-                rv_rekomendasi.adapter = adapter
-            }
-
-            override fun onFailure(call: Call<HomeModel>, t: Throwable) {
-
-            }
-
-        })
-
     }
 
     private fun checkPermission():Boolean{

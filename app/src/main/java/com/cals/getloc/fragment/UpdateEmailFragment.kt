@@ -12,7 +12,9 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.cals.getloc.R
+import com.cals.getloc.ui.profile.ProfileFragment
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthActionCodeException
@@ -88,13 +90,7 @@ class UpdateEmailFragment : Fragment() {
                 user.let {
                     user?.updateEmail(email)?.addOnCompleteListener {
                         if (it.isSuccessful){
-                            val profileFragment = ProfileFragment()
-                            fragmentManager?.beginTransaction()?.apply {
-                                replace(R.id.frameLayout, profileFragment, ProfileFragment::class.java.simpleName)
-                                    .addToBackStack(null)
-                                    .commit()
-
-                            }
+                            findNavController().navigate(R.id.action_updateEmailFragment_to_profileFragment)
                         } else{
                             Toast.makeText(activity, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                         }
