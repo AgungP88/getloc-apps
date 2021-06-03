@@ -1,0 +1,4 @@
+# Function dependencies, for example:
+# package>=version
+ortools>=9.0
+googlemaps>=4.4
