@@ -4,6 +4,7 @@ from app.model.wisata import Wisata
 from app import response, app, db
 from flask import request
 from app import routes
+from sqlalchemy import text
 
 
 def index():
@@ -44,6 +45,16 @@ def searchCity(kota):
         print(e)
 
 
+def multipleSearchId(result):
+    try:
+        wisata = db.engine.execute(
+            text("SELECT * FROM wisata WHERE place_id = ''" + result))
+        data = formatarray(wisata)
+        return response.success(data, "success")
+    except Exception as e:
+        print(e)
+
+
 def formatarray(datas):
     array = []
 
@@ -61,7 +72,8 @@ def singleObject(data):
         'city': data.city,
         'price': data.price,
         'rating': data.rating,
-        'spend_time': data.spend_time
+        'spend_time': data.spend_time,
+        'deskripsi': data.deskripsi
     }
 
     return data
