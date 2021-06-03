@@ -1,5 +1,3 @@
-<link href="https://unpkg.com/primer/build/build.css" rel="stylesheet">
-
 # Cloud Computing Path
 
 Creating **RESTful APIs** and deploying to [Google Cloud Platform](https://cloud.google.com)
@@ -23,7 +21,7 @@ In this section there is a list of all destinations that can be filtered by name
 
 **Method :**
 
-> <button class="btn btn-sm btn-primary" type="button">GET</button>
+> `GET`
 
 - **Show List Destination**
   > https://getloc-314510.et.r.appspot.com/wisata
@@ -195,7 +193,7 @@ In this section there is a list of all package that can be filtered by Package I
 
 **Method :**
 
-> <button class="btn btn-sm btn-primary" type="button">GET</button>
+> `GET`
 
 - **List all package**
 
@@ -278,7 +276,7 @@ This **RESTful API**s is used to convert the id from the **Machine Learning** mo
 
 **Method :**
 
-> <button class="btn btn-sm btn-primary" type="button">GET</button>
+> `GET`
 
 - **List all package**
 
@@ -350,7 +348,7 @@ This **RESTful APIs** is used to connect data models that have been created by t
 
 **Method :**
 
-> <button class="btn btn-sm btn-primary" type="button">GET</button>
+> `GET`
 
 - **Prediction Place**
 
