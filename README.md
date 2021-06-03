@@ -1,5 +1,6 @@
-# getloc-apps
-GetLoc GitHub Repositories of Bangkit Academy 2021 Capstone Project from 3 learning path. Machine Learning, Mobile development, Cloud Computing.
+# GetLoc apps
+GetLoc : Get Location GitHub Repositories of Bangkit Academy 2021 Capstone Project from 3 learning path. Machine Learning, Mobile development, Cloud Computing from team B21-CAP0128.
+
 
 # About the project
 
