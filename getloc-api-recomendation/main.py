@@ -1,3 +1,4 @@
+import os
 import json
 import numpy as np
 from keras.models import load_model
@@ -7,15 +8,16 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # load model
-model = load_model('./recommendation_rating_model.h5')
+model = load_model(
+    '/home/c3142828/getloc-apps/getloc-api-recomendation/recommendation_rating_model.h5')
 
 
-@app.route("/")
+@app.route("/getloc-api-recomendation")
 def hello():
     return "Hello, World!"
 
 
-@app.route("/predict/<int:id>", methods=["GET"])
+@app.route("/getloc-api-recomendation/predict/<int:id>", methods=["GET"])
 def predict(id):
     id_place = range(1, 20)
     # Creating dataset for making recommendations for the first user
@@ -50,3 +52,8 @@ def predict(id):
 
     # return a response in json format
     return jsonify(response_json)
+
+
+if __name__ == '__main__':
+    # app.run()
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
