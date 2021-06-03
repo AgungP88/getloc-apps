@@ -3,7 +3,6 @@ from app.model.wisata import Wisata
 
 from app import response, app, db
 from flask import request
-from app import routes
 from sqlalchemy import text
 
 
