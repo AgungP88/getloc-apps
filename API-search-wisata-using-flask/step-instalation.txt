@@ -7,5 +7,5 @@ pip3 install flask-migrate
 pip3 install pymysql
 
 flask db init
-flask db migration -m "commit message"
+flask db migrate -m "commit message"
 flask db upgrade
