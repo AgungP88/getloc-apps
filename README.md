@@ -25,19 +25,19 @@ Before traveling, usually we will make a plan in advance about the location to b
 	
 # Usage
 - How to find the nearest tourist spots
-1. Login to your accounts 
-1. Click on search button
-1. Input your current location 
-1. GetLoc will recommend you the nearest tourist spots
+	1. Login to your accounts 
+	1. Click on search button
+	1. Input your current location 
+	1. GetLoc will recommend you the nearest tourist spots
 	
 -  How to find the tourist spot based on time and cost (we make package of trip plan base on the cost and time)
 	1. Login to your accounts
-	2. Click Recommendation trip plan
-	3. Chose the trip pla
+	1. Click Recommendation trip plan
+	1. Chose the trip pla
 
 - How to get the shortest route from the several tourist destination
 	1. You can choose from ‘trip plan’ there are already several tourist destination in there or you can chose tourist destination one by one and then click next
-	2. You will direct to next page that will show you a solution of the best and shortest route
+	1. You will direct to next page that will show you a solution of the best and shortest route
 
 
 # Contributing
