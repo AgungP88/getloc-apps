@@ -1,3 +1,11 @@
+<br />
+<p align="center">
+  <a href="#">
+    <img src="logo/playstore_icon.png" height="300">
+  </a>
+</p>
+<br>
+
 # GetLoc apps
 
 GetLoc : Get Location GitHub Repositories of Bangkit Academy 2021 Capstone Project from 3 learning path. Machine Learning, Mobile development, Cloud Computing from team B21-CAP0128.
@@ -61,14 +69,14 @@ In our project is divided into four branches.
 
 - How to find the tourist spot based on time and cost (we make package of trip plan base on the cost and time)
 
-1.  Login to your accounts
-2.  Click Recommendation trip plan
-3.  Chose the trip plan
+  1.  Login to your accounts
+  2.  Click Recommendation trip plan
+  3.  Chose the trip plan
 
 - How to get the shortest route from the several tourist destination
 
-1.  You can choose from ‘trip plan’ there are already several tourist destination in there or you can chose tourist destination one by one and then click next
-2.  You will direct to next page that will show you a solution of the best and shortest route
+  1.  You can choose from ‘trip plan’ there are already several tourist destination in there or you can chose tourist destination one by one and then click next
+  2.  You will direct to next page that will show you a solution of the best and shortest route
 
 # Contributing
 
@@ -87,4 +95,4 @@ In our project is divided into four branches.
 
 # Acknowledgments
 
-<img src="https://www.dicoding.com/blog/wp-content/uploads/2020/12/Cover.png" />
+<img src="https://www.dicoding.com/blog/wp-content/uploads/2020/12/Cover.png" height="200" />
