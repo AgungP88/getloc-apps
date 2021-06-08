@@ -8,7 +8,9 @@ Before traveling, usually we will make a plan in advance about the location to b
 
 # Team Members
 
-## Team ID :
+## Team ID : B21-CAP0128
+
+<br>
 
 | Name                  | Student ID | Path                |
 | --------------------- | ---------- | ------------------- |
@@ -18,6 +20,8 @@ Before traveling, usually we will make a plan in advance about the location to b
 | Faizal Surya Prabowo  | A0070729   | Android Development |
 | Dimas Kuncoro Jati    | C2772526   | Cloud Computing     |
 | Luky Mulana           | C3142828   | Cloud Computing     |
+
+<br>
 
 # Resource
 
@@ -69,6 +73,15 @@ In our project is divided into four branches.
 
 # Contact
 
-<a href="https://www.linkedin.com/in/lukymulana/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+| Name                  | Contact                                                                                                                                                                                                                                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Agung Prabowo         | <a href="https://www.linkedin.com/in/agung-prabowo8800/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="https://github.com/AgungP88"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>                   |
+| Sabrina Mutamimul Ula | <a href="https://www.linkedin.com/in/sabrina-m-a65441130/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="https://github.com/sabrinaa68"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>               |
+| Annisa Syalsabila     | <a href="https://www.linkedin.com/in/annisa-syalsabila-590099207/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="https://github.com/annisasyalsabila"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a> |
+| Faizal Surya Prabowo  | <a href="https://www.linkedin.com/in/faizal-surya/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="https://github.com/solsur"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>                          |
+| Dimas Kuncoro Jati    | <a href="https://www.linkedin.com/in/dimas-k-jati/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="https://github.com/DimasKunJ"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>                       |
+| Luky Mulana           | <a href="https://www.linkedin.com/in/lukymulana/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="https://github.com/lukymulana"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>                        |
 
 # Acknowledgments
+
+<img src="https://www.dicoding.com/blog/wp-content/uploads/2020/12/Cover.png" />
