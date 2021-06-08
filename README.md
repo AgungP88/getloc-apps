@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="logo/logos.png">
+    <img src="logo/logo_getloc.png">
   </a>
 </p>
 <br>
