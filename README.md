@@ -92,6 +92,16 @@ In our project is divided into four branches.
 
 # Contributing
 
+We are very open to any input, therefore we want to make contributing to this project as easy and transparent as possible, whether it's:
+
+- Reporting a bug
+- Discussing the current state of the code
+- Submitting a fix
+- Proposing new features
+- Becoming a maintainer
+
+If you think something important is missing or should be different based on your experience, we'd love to have you contribute to this project. If you have suggestions for improving these apps, please [contact](https://github.com/AgungP88/getloc-apps#Contact) the existing ones.
+
 # License
 
 # Contact
