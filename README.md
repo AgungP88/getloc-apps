@@ -54,10 +54,10 @@ In our project is divided into four branches.
 
 - How to find the nearest tourist spots
 
-1.  Login to your accounts
-2.  Click on search button
-3.  Input your current location
-4.  GetLoc will recommend you the nearest tourist spots
+  1.  Login to your accounts
+  2.  Click on search button
+  3.  Input your current location
+  4.  GetLoc will recommend you the nearest tourist spots
 
 - How to find the tourist spot based on time and cost (we make package of trip plan base on the cost and time)
 
