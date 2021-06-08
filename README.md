@@ -81,7 +81,7 @@ In our project is divided into four branches.
 # Product
 
 1. [GetLoc Apps](https://storage.googleapis.com/getloc-314510.appspot.com/getloc-1.0.apk)
-2. [Web Service](getloc-314510.et.r.appspot.com/)
+2. [Web Service](http://getloc-314510.et.r.appspot.com/)
    <br>
 
 # Contributing
