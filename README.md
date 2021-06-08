@@ -1,7 +1,7 @@
 # Cloud Computing Path
 
 Creating **RESTful APIs** and deploying to [Google Cloud Platform](https://cloud.google.com)
-by using [Google App Engine](https://cloud.google.com/appengine) and [Google Compute Engine](https://cloud.google.com/compute) for communication between **Machine Learning** and **Mobile Development**. Also implementing **TSP** in [Cloud Function](https://cloud.google.com/functions) and creating database in [Cloud SQL](https://cloud.google.com/sql).
+by using [Google App Engine](https://cloud.google.com/appengine) and [Google Compute Engine](https://cloud.google.com/compute) for communication between **Machine Learning** and **Mobile Development**. Using [Cloud Function](https://cloud.google.com/functions) to solve the Travelling Salesman Problem(TSP). Also Creating database in [Cloud SQL](https://cloud.google.com/sql).
 
 # RESTful APIs
 
