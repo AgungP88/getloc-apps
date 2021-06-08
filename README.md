@@ -44,19 +44,19 @@ In our project is divided into four branches.
 
 - **Prerequisites**
 
-1. Android
-2. Internet connection
-3. GPS/Location
+  1.  Android
+  2.  Internet connection
+  3.  GPS/Location
 
 - **Installation**
 
-1. Download the APK
-2. Install the APK
+  1.  Download the APK
+  2.  Install the APK
 
 - **Register**
 
-1. Open Getloc application
-2. Register your email address
+  1.  Open Getloc application
+  2.  Register your email address
 
 # Usage
 
@@ -78,6 +78,12 @@ In our project is divided into four branches.
   1.  You can choose from ‘trip plan’ there are already several tourist destination in there or you can chose tourist destination one by one and then click next
   2.  You will direct to next page that will show you a solution of the best and shortest route
 
+# Product
+
+1. [GetLoc Apps](https://storage.googleapis.com/getloc-314510.appspot.com/getloc-1.0.apk)
+2. [Web Service](getloc-314510.et.r.appspot.com/)
+   <br>
+
 # Contributing
 
 # License
@@ -95,4 +101,4 @@ In our project is divided into four branches.
 
 # Acknowledgments
 
-<img src="https://www.dicoding.com/blog/wp-content/uploads/2020/12/Cover.png" height="200" />
+<img src="https://www.dicoding.com/blog/wp-content/uploads/2020/12/Cover.png" />
