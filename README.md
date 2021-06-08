@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="logo/playstore_icon.png" height="300">
+    <img src="logo/logos.png">
   </a>
 </p>
 <br>
@@ -10,9 +10,11 @@
 
 GetLoc : Get Location GitHub Repositories of Bangkit Academy 2021 Capstone Project from 3 learning path. Machine Learning, Mobile development, Cloud Computing from team B21-CAP0128.
 
-# About the project
+# About The Project
 
 Before traveling, usually we will make a plan in advance about the location to be visited and the time of departure. This is done to avoid problems, one of which is the distance to be traveled is farther until the time needed does not match expectations. To overcome this, our team uses the Traveling Salesman Problem method. We present GetLoc as an application that is able to recommend several tourist attractions according to the location you want to go.
+
+<img src="logo/Splash.png" width="30%"> <img src="logo/Homeipohn.png" width="30%"> <img src="logo/rekomendasi.png" width="30%">
 
 # Team Members
 
@@ -102,3 +104,5 @@ In our project is divided into four branches.
 # Acknowledgments
 
 <img src="https://www.dicoding.com/blog/wp-content/uploads/2020/12/Cover.png" />
+
+<!-- reference https://github.com/alexandresanlim/Badges4-README.md-Profile -->
