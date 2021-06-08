@@ -1,9 +1,11 @@
 package com.cals.getloc.api
 
+import com.cals.getloc.model.DetailWisata
 import com.cals.getloc.model.HomeModel
 import com.cals.getloc.model.PaketResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiEndpoint {
@@ -19,5 +21,8 @@ interface ApiEndpoint {
         @Query("nama") query: String
     ): Call<HomeModel>
 
-
+    @GET("/")
+    fun getWisataDetail(
+        @Path("place_id") place_id: String
+    ): Call<DetailWisata>
 }

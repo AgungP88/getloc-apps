@@ -3,7 +3,6 @@
 package com.cals.getloc.ui.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -11,11 +10,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.cals.getloc.MainActivity
 import com.cals.getloc.R
-import com.cals.getloc.ui.signup.RegisterActivity
 import com.cals.getloc.activity.ResetPasswordActivity
 import com.cals.getloc.databinding.ActivityLoginBinding
+import com.cals.getloc.ui.signup.RegisterActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -23,14 +23,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var  googleSignInClient: GoogleSignInClient
-    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private companion object{
         private const val RC_SIGN_IN = 100

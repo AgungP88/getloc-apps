@@ -1,14 +1,6 @@
 package com.cals.getloc.viewmodel
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.cals.getloc.api.RetrofitClient
-import com.cals.getloc.model.DetailDataTravel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class DetailViewModel: ViewModel() {
 

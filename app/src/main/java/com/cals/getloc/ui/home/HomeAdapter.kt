@@ -6,6 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.cals.getloc.R
 import com.cals.getloc.model.DataTravel
 import com.google.android.libraries.places.api.model.Place
@@ -34,10 +37,21 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.MyViewHolder>()  {
         fun bind(home: DataTravel) {
             val name = view.findViewById<TextView>(R.id.tvNameWisata)
             val city = view.findViewById<TextView>(R.id.tvCity)
-            val place_id = view.findViewById<ImageView>(R.id.img_user)
+            val imgUser = view.findViewById<ImageView>(R.id.img_user)
+
 
             name.text = home.name
             city.text = home.city
+
+                Glide.with(itemView.context)
+                    .load("https://picsum.photos/200?random=30")
+                    .transform(RoundedCorners(20))
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loader)
+                            .error(R.drawable.ic_error)
+                    )
+                    .into(imgUser)
+
 
         }
 

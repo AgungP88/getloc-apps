@@ -61,4 +61,5 @@
     <string name="ubah_password">Ubah password</string>
     <string name="save">Save</string>
     <string name="logout">Logout</string>
+    <string name="masuk_dengan_google">Masuk dengan Google</string>
 </resources>

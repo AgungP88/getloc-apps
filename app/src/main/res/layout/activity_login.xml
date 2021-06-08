@@ -166,7 +166,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_btn_primary_rounded_side"
-            android:text="@string/lanjutkan_dengan_google"
+            android:text="@string/masuk_dengan_google"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_semibold"/>

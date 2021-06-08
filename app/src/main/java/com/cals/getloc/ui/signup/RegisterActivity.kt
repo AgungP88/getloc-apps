@@ -36,7 +36,6 @@ class RegisterActivity : AppCompatActivity() {
     var password: String = ""
     var imageUri: Uri? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -114,7 +113,6 @@ class RegisterActivity : AppCompatActivity() {
 
         }
     }
-
 
     private fun createUserWithoutImage() {
         val userid = auth.currentUser!!.uid

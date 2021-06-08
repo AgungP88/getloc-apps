@@ -5,8 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cals.getloc.api.RetrofitClient
-import com.cals.getloc.model.DataTravel
-import com.cals.getloc.model.HomeModel
 import com.cals.getloc.model.PaketResponse
 import com.cals.getloc.model.PaketTravel
 import retrofit2.Call
