@@ -90,6 +90,27 @@ In our project is divided into four branches.
 2. [Web Service](http://getloc-314510.et.r.appspot.com/)
    <br>
 
+# Technology Used
+
+1. Machine Learning
+   - [Tensorflow](https://www.tensorflow.org/)
+   - [Python](https://www.python.org/)
+2. Android Development
+   - [Kotlin](https://kotlinlang.org/)
+   - [Firebase](https://firebase.google.com/)
+3. Cloud Computing
+   - [Flask](https://flask.palletsprojects.com/)
+   - [Google Compute Engine](https://cloud.google.com/compute)
+   - [Google App Engine](https://cloud.google.com/appengine)
+   - [Google Cloud Function](https://cloud.google.com/functions)
+4. Design
+   - [Figma](https://www.figma.com/file/pJ59hWcJSTAF1tQfbjI0jk/Design?node-id=0%3A1)
+     <br>
+
+# API Documentation
+
+For API documentation, see the following link [RESTful APIs GetLoc](https://github.com/AgungP88/getloc-apps/tree/cloud-computing#restful-apis)
+
 # Contributing
 
 We are very open to any input, therefore we want to make contributing to this project as easy and transparent as possible, whether it's:
