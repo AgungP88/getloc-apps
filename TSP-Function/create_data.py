@@ -2,14 +2,14 @@ from googlemaps import Client
 
 def matrix(data, travel='distance'):
   """ 
-  Parsing input dari API distance matrix menjadi matrix
+  Parse input from distance matrix API into matrix format
   Input:
-    data = input dari API distance matrix
-    travel= 'distance' untuk jarak tempuh
-            'duration' untuk waktu tempuh
+    data = input from distance matrix API
+    travel= 'distance' for travel distances
+            'duration' for travel time
   Output:
-    matrix berukuran NxN dengan N jumlah tempat 
-    (Tempat yang akan dikunjungi + 1 lokasi user)
+    matrix of size NxN with N number of places
+    (N = places to visit + 1 user location)
   """
   matrix = []
   for i in data['rows']:
@@ -21,18 +21,18 @@ def matrix(data, travel='distance'):
 
 def create_data(api_key, point, mode=None):
   """
-  Mengambil data dari API distance matrix
+  Fetching data from distance matrix API
   Input:
-    api_key = api_key project
-    point = lokasi user + tempat yang akan dikunjung
-    mode = Mode transportasi/kendaraan 
+    api_key = project api key
+    point = user location + places to visit
+    mode = Mode of transportation 
             "driving", "walking", "bicycling"
   Output:
-    Dictionary dengan matrix jarak dan waktu
+    Dictionary with distance and time matrix
   """
   outs = {}
   gmaps = Client(api_key)
   data = gmaps.distance_matrix(point,point,mode=mode)
-  outs['length'] = matrix(data, 'distance')
+  outs['distance_matrix'] = matrix(data, 'distance')
   outs['time'] = matrix(data,'duration')
   return outs

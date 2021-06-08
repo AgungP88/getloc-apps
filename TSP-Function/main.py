@@ -1,19 +1,18 @@
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 from create_data import create_data
+from scipy.spatial import distance_matrix
+from flask import jsonify
 
-def TSP(request):
+def TSP(data, point, place):
   """
-  Fungsi untuk menyelesaikan tsp dengan ortools
+  Function to solve TSP with ortools
   Input (JSON):
-    api_key = api_key project
-    point = lokasi user + tempat yang akan dikunjungi
+    data = distance matrix
+    point =  list of cordinates/place id
+    place = list of place name
   Output:
-    JSON dengan total jarak dan waktu, urutan tempat 
+    places order, total distance, total time 
   """
-
-  address = request.get_json()
-  data = create_data(address['api_key'], address['point'])
-  data['distance_matrix'] = data['length']
 
   manager = pywrapcp.RoutingIndexManager(len(data['distance_matrix']), 1, 0)
   routing = pywrapcp.RoutingModel(manager)
@@ -44,12 +43,36 @@ def TSP(request):
   
   route = route+[0]
 
-  point = [address['point'][i] for i in route[1:]]
-  distance = [data['length'][i][j] for i,j in zip(route[:-1],route[1:])]
+  place = [place[i] for i in route[1:]]
+  point = [point[i] for i in route[1:]]
+  distance = [data['distance_matrix'][i][j] for i,j in zip(route[:-1],route[1:])]
   time = [data['time'][i][j] for i,j in zip(route[:-1],route[1:])]
   
-  output = [{"place":i, "distance":j, "time":k} for i,j,k in zip(point, distance, time)]
+  output = [{"place":i, "distance":j, "time":k, "point":l} for i,j,k,l in zip(place, distance, time, point)]
   
-  return {"route": output, 
-          "total_distance":total_distance,
-          "total_time":sum(time)}
+  return jsonify({"data" : {"route": output, 
+                          "total_distance":total_distance,
+                          "total_time":sum(time)},
+                  "message" : "success"})
+
+def main(request):
+  """
+  Main function
+  """
+  address = request.get_json()
+  if address:
+    try:
+      if all(map(lambda x: len(x)==2, address['point'])):
+        data = {}
+        data['distance_matrix'] = distance_matrix(address['point'],address['point'])*111139
+        data['time'] = data['distance_matrix']/18
+      else:
+        point = list(map(lambda x:'place_id:'+x if len(x) > 2 else x, address['point']))
+        data = create_data(address['api_key'], point)
+    except: 
+      return {"data":{},
+              "message":"Please use valid API key and valid place ID/Cordinates"}
+    return TSP(data, address['point'], address['place'])
+  else:
+    return {"data":{}, 
+            "message":"Please input data"}

@@ -2,3 +2,4 @@
 # package>=version
 ortools>=9.0
 googlemaps>=4.4
+scipy>=1.6
