@@ -69,6 +69,6 @@ In our project is divided into four branches.
 
 # Contact
 
-![image]({https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white})
+![https://www.linkedin.com/in/lukymulana/](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)
 
 # Acknowledgments
