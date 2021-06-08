@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.cals.getloc.R
+import com.cals.getloc.ui.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class ResetPasswordActivity : AppCompatActivity() {

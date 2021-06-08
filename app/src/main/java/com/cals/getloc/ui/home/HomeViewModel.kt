@@ -15,24 +15,6 @@ class HomeViewModel : ViewModel() {
 
     val listWisata = MutableLiveData<ArrayList<DataTravel>>()
 
-    fun setWisataRekomendasi(){
-        RetrofitClient.instance
-            .getAllWisata()
-            .enqueue(object : Callback<HomeModel> {
-                override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
-                    if (response.isSuccessful) {
-                        listWisata.postValue(response.body()?.data)
-                    }
-                }
-
-                override fun onFailure(call: Call<HomeModel>, t: Throwable) {
-                    Log.d("onFailure: ", t.message.toString())
-                }
-
-            })
-
-    }
-
     fun setWisataPilihan(){
         RetrofitClient.instance
             .getAllWisata()

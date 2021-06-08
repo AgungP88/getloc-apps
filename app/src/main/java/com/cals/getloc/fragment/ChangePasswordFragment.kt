@@ -17,6 +17,7 @@ import com.cals.getloc.ui.profile.ProfileFragment
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthActionCodeException
+import com.google.firebase.auth.GoogleAuthProvider
 
 class ChangePasswordFragment : Fragment() {
     private lateinit var auth : FirebaseAuth

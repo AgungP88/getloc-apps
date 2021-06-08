@@ -1,6 +1,5 @@
 package com.cals.getloc
 
-import android.inputmethodservice.KeyboardView
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController

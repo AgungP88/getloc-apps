@@ -1,8 +1,9 @@
 @file:Suppress("DEPRECATION")
 
-package com.cals.getloc.activity
+package com.cals.getloc.ui.login
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -10,10 +11,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.cals.getloc.MainActivity
 import com.cals.getloc.R
-import com.cals.getloc.databinding.ActivityRegisterBinding
+import com.cals.getloc.ui.signup.RegisterActivity
+import com.cals.getloc.activity.ResetPasswordActivity
+import com.cals.getloc.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -21,53 +23,61 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 
-class RegisterActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityRegisterBinding
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var auth: FirebaseAuth
     private lateinit var  googleSignInClient: GoogleSignInClient
-    private lateinit var  auth: FirebaseAuth
-
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private companion object{
         private const val RC_SIGN_IN = 100
         private const val TAG = "GOOGLE_SIGN_IN_TAG"
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val btnSignUp:Button = findViewById(R.id.btnSignUp)
-        val btnLogin:TextView = findViewById(R.id.btnToLogin)
-        val etEmail:EditText = findViewById(R.id.etEmail)
-        val etPassword:EditText = findViewById(R.id.etPassword)
-
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
         auth = FirebaseAuth.getInstance()
 
-        btnLogin.setOnClickListener {
-            Intent(this, LoginActivity::class.java).also {
-                it.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(it)
-            }
-        }
+
+        val btnMasuk:Button = findViewById(R.id.btnLogin)
+        val btnRegister:TextView = findViewById(R.id.btnRegister)
+        val btnForgotPassword:TextView = findViewById(R.id.btnForgotPassword)
+        val etEmail: EditText = findViewById(R.id.etEmail)
+        val etPassword: EditText = findViewById(R.id.etPassword)
+
+
         binding.btnMasukGoogle.setOnClickListener {
             Log.d(TAG, "onCreate: begin Google SignIn")
             val intent = googleSignInClient.signInIntent
             startActivityForResult(intent, RC_SIGN_IN)
         }
 
+        btnRegister.setOnClickListener {
+            Intent(this, RegisterActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(it)
+            }
+        }
+        btnForgotPassword.setOnClickListener {
+            Intent(this@LoginActivity, ResetPasswordActivity::class.java).also {
+                startActivity(it)
+            }
+        }
 
-        btnSignUp.setOnClickListener {
+        btnMasuk.setOnClickListener {
             val email: String = etEmail.text.toString().trim()
             val password: String = etPassword.text.toString().trim()
 
@@ -88,11 +98,12 @@ class RegisterActivity : AppCompatActivity() {
                 etPassword.requestFocus()
                 return@setOnClickListener
             }
-            registerUser(email, password)
+
+
+            loginUser(email, password)
+
         }
-
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -115,42 +126,42 @@ class RegisterActivity : AppCompatActivity() {
 
         val credential = GoogleAuthProvider.getCredential(account!!.idToken, null)
         auth.signInWithCredential(credential)
-            .addOnCompleteListener(this){
-                if (it.isSuccessful){
-                    Intent(this@RegisterActivity, MainActivity::class.java).also { intent ->
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(intent)
-                        finish()
+                .addOnCompleteListener(this){
+                    if (it.isSuccessful){
+                        Intent(this@LoginActivity, MainActivity::class.java).also { intent ->
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            finish()
+                        }
+                    } else{
+                        Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
                     }
-                } else{
-                    Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
                 }
-            }
 
         auth.currentUser?.let { auth.updateCurrentUser(it) }
 
     }
 
-    private fun registerUser(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
+    private fun loginUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener(this){
                 if (it.isSuccessful){
-                    Intent(this@RegisterActivity, MainActivity::class.java).also { intent->
+                    Intent(this@LoginActivity, MainActivity::class.java).also { intent ->
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
                     }
                 } else{
-                    Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
-
 
     }
 
     override fun onStart() {
         super.onStart()
+
         if (auth.currentUser!=null){
-            Intent(this@RegisterActivity, MainActivity::class.java).also { intent ->
+            Intent(this@LoginActivity, MainActivity::class.java).also { intent ->
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             }

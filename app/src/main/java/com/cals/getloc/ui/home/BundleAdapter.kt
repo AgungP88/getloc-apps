@@ -1,34 +1,36 @@
 package com.cals.getloc.ui.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cals.getloc.R
-import com.cals.getloc.model.DataTravel
+import com.cals.getloc.model.PaketTravel
 
 class BundleAdapter : RecyclerView.Adapter<BundleAdapter.MyViewHolder>()  {
 
     private val limit = 3
-    private val list = ArrayList<DataTravel>()
+    private val list = ArrayList<PaketTravel>()
 
-    fun setLists(dataTravel: ArrayList<DataTravel>){
+    fun setLists(paketTravel: ArrayList<PaketTravel>){
         list.clear()
-        list.addAll(dataTravel)
+        list.addAll(paketTravel)
         notifyDataSetChanged()
     }
 
     inner class MyViewHolder(val view: View): RecyclerView.ViewHolder(view){
 
-        fun bind(home: DataTravel){
+        @SuppressLint("SetTextI18n")
+        fun bind(home: PaketTravel){
             val name = view.findViewById<TextView>(R.id.tvNameWisata)
             val city = view.findViewById<TextView>(R.id.tvCity)
             val plan = view.findViewById<TextView>(R.id.tvPlan)
 
-            name.text = home.name
             city.text = home.city
-            plan.text = home.category
+            name.text = "Rekomendasi 5 Tempat Wisata di "+home.city
+            plan.text = "Plan "+ home.id
         }
 
     }

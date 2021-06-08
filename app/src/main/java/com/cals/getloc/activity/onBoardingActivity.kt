@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.cals.getloc.R
 import com.cals.getloc.adapter.onBoardingViewPagerAdapter
 import com.cals.getloc.model.onBoardingData
+import com.cals.getloc.ui.login.LoginActivity
 import com.google.android.material.tabs.TabLayout
 
 class onBoardingActivity : AppCompatActivity() {

@@ -31,6 +31,7 @@ import java.util.*
 
 class HomeFragment: Fragment() {
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var bundleViewModel: BundleViewModel
     private lateinit var adapter: HomeAdapter
     private lateinit var adapters: BundleAdapter
     private lateinit var  fusedLocationProviderClient: FusedLocationProviderClient
@@ -62,7 +63,6 @@ class HomeFragment: Fragment() {
         nameUser.text = "Hello, "+ user?.displayName
 
         adapter = HomeAdapter()
-        adapters = BundleAdapter()
 
         btnSearch.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_navigation_plan)
@@ -76,28 +76,36 @@ class HomeFragment: Fragment() {
             findNavController().navigate(R.id.action_navigation_home_to_pilihanActivity)
         }
 
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val rv_Pilih = view.findViewById<RecyclerView>(R.id.rv_pilih)
         rv_Pilih.setHasFixedSize(true)
         rv_Pilih.layoutManager = LinearLayoutManager(activity)
         rv_Pilih.adapter = adapter
-
-        val rv_Rekomendasi = view.findViewById<RecyclerView>(R.id.rv_rekomendasi)
-        rv_Rekomendasi.setHasFixedSize(true)
-        rv_Rekomendasi.layoutManager = LinearLayoutManager(activity)
-        rv_Rekomendasi.adapter = adapters
-
-        homeViewModel.setWisataRekomendasi()
         homeViewModel.setWisataPilihan()
         homeViewModel.getWisata().observe(viewLifecycleOwner, {
             if (it!=null){
                 adapter.setList(it)
+            }
+        })
+
+
+        adapters = BundleAdapter()
+        bundleViewModel = ViewModelProvider(this).get(BundleViewModel::class.java)
+        val rv_Rekomendasi = view.findViewById<RecyclerView>(R.id.rv_rekomendasi)
+        rv_Rekomendasi.setHasFixedSize(true)
+        rv_Rekomendasi.layoutManager = LinearLayoutManager(activity)
+        rv_Rekomendasi.adapter = adapters
+        bundleViewModel.setWisataRekomendasi()
+        bundleViewModel.getWisataRekomendasi().observe(viewLifecycleOwner, {
+            if (it!=null){
                 adapters.setLists(it)
             }
         })
 
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity)
+
+        getLastLocation()
 
         btnPosition.setOnClickListener {
             getLastLocation()

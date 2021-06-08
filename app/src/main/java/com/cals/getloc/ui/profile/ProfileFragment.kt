@@ -16,7 +16,11 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.cals.getloc.R
-import com.cals.getloc.activity.LoginActivity
+import com.cals.getloc.ui.login.LoginActivity
+import com.cals.getloc.utils.MyGetLoc
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.storage.FirebaseStorage
@@ -27,6 +31,7 @@ class ProfileFragment: Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var imgUri : Uri
+    private lateinit var  googleSignInClient: GoogleSignInClient
 
     companion object{
         const val REQUEST_CAMERA = 100
@@ -53,6 +58,12 @@ class ProfileFragment: Fragment() {
         val icUnverified: ImageView = view.findViewById(R.id.ic_unverified)
         auth = FirebaseAuth.getInstance()
 
+        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+        googleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
+
         val user = auth.currentUser
         if ( user != null){
             if (user.photoUrl != null){
@@ -75,6 +86,8 @@ class ProfileFragment: Fragment() {
 
         btn_Logout.setOnClickListener {
             auth.signOut()
+            googleSignInClient.signOut()
+            MyGetLoc.currentUser = null
             Intent(requireContext(), LoginActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)

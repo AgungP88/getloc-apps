@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Username"
+                    android:text="@string/username"
                     android:fontFamily="@font/poppins_semibold"
                     android:textColor="@color/colorPrimary"
                     android:textSize="14sp"
@@ -84,14 +84,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Username"
+                    android:hint="@string/username"
                     android:inputType="textPersonName"
                     android:background="@drawable/bg_outline_primary_rounded"
                     android:padding="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    />
+                    tools:ignore="Autofill" />
 
             </LinearLayout>
 
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Email"
+                    android:text="@string/email"
                     android:fontFamily="@font/poppins_semibold"
                     android:textColor="@color/colorPrimary"
                     android:textSize="14sp"
@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Email"
+                    android:hint="@string/email"
                     android:focusableInTouchMode="false"
                     android:inputType="textEmailAddress"
                     android:background="@drawable/bg_outline_primary_rounded"
@@ -130,7 +130,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    />
+                    tools:ignore="Autofill" />
 
             </LinearLayout>
 
@@ -143,13 +143,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="Ubah password"
+            android:text="@string/ubah_password"
             app:layout_constraintTop_toBottomOf="@id/ll_one"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-
-
-
 
 
         <Button
@@ -158,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_btn_primary_rounded"
-            android:text="Save"
+            android:text="@string/save"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:textColor="#FFFFFF"
@@ -166,16 +163,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnChangePassword" />
 
-
-
-
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_btn_primary_rounded"
-            android:text="Logout"
+            android:text="@string/logout"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_semibold"
@@ -186,13 +180,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
