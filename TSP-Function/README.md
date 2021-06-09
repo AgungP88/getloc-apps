@@ -1,5 +1,6 @@
 ## Citation
 
+```
 @software{ortools,
   title = {OR-Tools},
   version = {9.0},
@@ -8,3 +9,4 @@
   url = {https://developers.google.com/optimization/},
   date = {2019-7-19}
 }
+```
