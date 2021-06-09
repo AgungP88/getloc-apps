@@ -391,3 +391,90 @@ This **RESTful APIs** is used to connect data models that have been created by t
 <br>
 
 # TSP Function
+
+We deploy function to solve tsp in cloud function. To get the distance matrix we use the Distance Matrix API or calculate it with the help of the scipy library. Next we use the ortools library to solve the tsp problem. 
+
+**Base URL :**
+> https://asia-southeast2-getloc-314510.cloudfunctions.net/
+
+**Path :**
+
+> /tsp
+
+**Method :**
+
+> `POST`
+
+**Headers :**
+> `content-type = application/json`
+
+**Body :**
+>`place = [List of place names]
+point = [List of coordinates/place id]
+api_key = api_key in GCP`
+
+**Example using python:**
+
+``` python
+import http.client
+
+conn = http.client.HTTPSConnection("asia-southeast2-getloc-314510.cloudfunctions.net")
+
+body = '''{
+    "place": ["my_location", "place_a", "place_b", "place_c"],
+    "point" : [
+                [-7.0218894, 110.4383345],
+                "ChIJa9-RYhXhbi4RfnIhsE56Mi4",
+                "ChIJ-S4F5Bb0aS4RgVq6v81ZM4s",
+                [-8.1288246, 110.5487763]
+              ],
+    "api_key" : "[YOUR_API_KEY]"
+}'''
+              
+headers = {'content-type': "application/json"}
+
+conn.request(method="POST", 
+             url="/tsp", 
+             body=body, 
+             headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+```
+
+**Output :**
+```json
+{
+    "data":{
+        "route":[
+                    {
+                        "distance":161530,
+                        "place":"place_c",
+                        "point":[-8.1288246,110.5487763],
+                        "time":12121
+                    },
+                    {
+                        "distance":403371,
+                        "place":"place_a",
+                        "point":"ChIJa9-RYhXhbi4RfnIhsE56Mi4",
+                        "time":21898
+                    },
+                    {
+                        "distance":209685,
+                        "place":"place_b",
+                        "point":"ChIJ-S4F5Bb0aS4RgVq6v81ZM4s",
+                        "time":10592
+                    },
+                    {
+                        "distance":441481,
+                        "place":"my_location",
+                        "point":[-7.0218894,110.4383345],
+                        "time":19846
+                    }
+                ],
+        "total_distance":1216067,
+        "total_time":64457
+        },
+    "message":"success"
+}
+```
