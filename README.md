@@ -16,7 +16,7 @@ After the design process, continued with making applications using android studi
 # Preview Mobile Apps
 
 <p align="center">
-	<img src="logo/Splash.png" width="25%"> &nbsp; &nbsp; &nbsp;
 	<img src="logo/Homeipohn.png" width="25%"> &nbsp; &nbsp; &nbsp;
+		<img src="logo/Splash.png" width="25%"> &nbsp; &nbsp; &nbsp;
 	<img src="logo/rekomendasi.png" width="25%">
 </p>
