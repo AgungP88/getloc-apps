@@ -409,9 +409,9 @@ We deploy function to solve tsp in cloud function. To get the distance matrix we
 > `content-type = application/json`
 
 **Body :**
->`place = [List of place names]
-point = [List of coordinates/place id]
-api_key = api_key in GCP`
+> place = [List of place names]\
+point = [List of coordinates/place id]\
+api_key = api_key in GCP
 
 **Example using python:**
 
