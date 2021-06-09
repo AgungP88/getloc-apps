@@ -1,4 +1,11 @@
-## Citation
+# File Description
+
+1) requirements.txt - library requirement
+2) create_data.py - function to create distance matrix
+3) main.py - main function to solve tsp
+
+
+# Citation
 
 ```
 @software{ortools,
