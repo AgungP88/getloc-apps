@@ -125,6 +125,8 @@ If you think something important is missing or should be different based on your
 
 # License
 
+Distributed under the GNU GENERAL PUBLIC LICENSE VERSION 3. See `LICENSE` for more information.
+
 # Contact
 
 | Name                  | Contact                                                                                                                                                                                                                                                                                                                                        |
