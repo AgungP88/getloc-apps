@@ -5,7 +5,7 @@ from flask import request
 
 @app.route('/')
 def index():
-    return 'Hallo'
+    return redirect("http://34.87.17.235/", code=302)
     # return request.args.get("page_number")
 
 
