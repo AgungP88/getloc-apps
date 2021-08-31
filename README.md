@@ -340,7 +340,7 @@ This **RESTful APIs** is used to connect data models that have been created by t
 
 **Base URL :**
 
-> http://34.101.230.116/getloc-api-recomendation/
+> http://34.87.17.235/getloc-api-recomendation/
 
 **Path :**
 
@@ -352,7 +352,7 @@ This **RESTful APIs** is used to connect data models that have been created by t
 
 - **Prediction Place**
 
-  > http://34.101.230.116/getloc-api-recomendation/predict/{user_id}
+  > http://34.87.17.235/getloc-api-recomendation/predict/{user_id}
 
   **Required**
 
@@ -360,7 +360,7 @@ This **RESTful APIs** is used to connect data models that have been created by t
 
   **Example request**
 
-  > http://34.101.230.116/getloc-api-recomendation/predict/3
+  > http://34.87.17.235/getloc-api-recomendation/predict/3
 
 ```json
 {
